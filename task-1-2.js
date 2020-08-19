@@ -1,22 +1,26 @@
-const invoice = 100;
-const stock = 100;
+const calculateEngravingPrice = (message = '', pricePerWord = 0) =>
+  message.split(' ').length * pricePerWord; // Write code in this line
 
-// Write code under this line
-const message =
-  invoice <= stock
-    ? "Заказ оформлен, с вами свяжется менеджер"
-    : "На складе недостаточно товаров!";
+console.log(
+  calculateEngravingPrice(
+    'Proin sociis natoque et magnis parturient montes mus',
+    10,
+  ),
+); // 80
 
-console.log(message);
+console.log(
+  calculateEngravingPrice(
+    'Proin sociis natoque et magnis parturient montes mus',
+    20,
+  ),
+); // 160
 
-//если invoice равен 100
-// то значение message будет равно
-// 'Заказ оформлен, с вами свяжется менеджер'
+console.log(
+  calculateEngravingPrice('Donec orci lectus aliquam est magnis', 40),
+); // 240
 
-//если invoice равен 50
-// то значение message будет равно
-// 'Заказ оформлен, с вами свяжется менеджер'
+console.log(
+  calculateEngravingPrice('Donec orci lectus aliquam est magnis', 20),
+); // 120
 
-//если invoice равен 150
-// то значение message будет равно
-// 'На складе недостаточно товаров!'
+console.log(calculateEngravingPrice('Uno', 100)); // 100
