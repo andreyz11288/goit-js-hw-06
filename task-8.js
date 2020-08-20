@@ -1,16 +1,18 @@
-function mapArray(array) {
+function reduceArray(array) {
   'use strict';
-  let number = [];
-  const numbers = new Array(array.length);
+  let total = 0;
+  // Write code under this line
   for (let i = 0; i < array.length; i += 1) {
-    // Write code under this line
-    number.push(array[i] * 10);
+    total += array[i];
   }
-  return number;
+  return total;
 }
 
-console.log(mapArray([-2, 0, 2]));
-// [-20, 0, 20]
+console.log(reduceArray([1, 2, 3]));
+// 6
 
-console.log(mapArray([-2.5, 0, 2.5]));
-// [-25, 0, 25]
+console.log(reduceArray([-2, 0, 2]));
+// 0
+
+//console.log(reduceArray([1, 2, 2.5]));
+// 5.5

@@ -1,16 +1,27 @@
-function mapArray(array) {
+function filterArray(array) {
   'use strict';
-  let number = [];
-  const numbers = new Array(array.length);
+  const numbers = [];
   for (let i = 0; i < array.length; i += 1) {
     // Write code under this line
-    number.push(array[i] * 10);
+
+    if (Number.isFinite(array[i])) {
+      numbers.push(array[i]);
+    }
   }
-  return number;
+  return numbers;
 }
 
-console.log(mapArray([-2, 0, 2]));
-// [-20, 0, 20]
+console.log(filterArray([-2, 0, 2]));
+// [-2, 0, 2]
 
-console.log(mapArray([-2.5, 0, 2.5]));
-// [-25, 0, 25]
+console.log(filterArray([1, NaN, Infinity]));
+// [1]
+
+console.log(filterArray([0, -0, 100, '100']));
+// [0, 0, 100]
+
+//console.log(filterArray([undefined, false, null, [], 1]));
+// [1]
+
+//console.log(filterArray([{}, () => {}, 2]));
+// [2]

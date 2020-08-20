@@ -1,16 +1,47 @@
-function mapArray(array) {
-  'use strict';
-  let number = [];
-  const numbers = new Array(array.length);
-  for (let i = 0; i < array.length; i += 1) {
-    // Write code under this line
-    number.push(array[i] * 10);
+function isLoginValid(login, min = 4, max = 16) {
+  // Write code under this line
+  if (login.length < min || max < login.length) {
+    return false;
+  } else {
+    return true;
   }
-  return number;
 }
-
-console.log(mapArray([-2, 0, 2]));
-// [-20, 0, 20]
-
-console.log(mapArray([-2.5, 0, 2.5]));
-// [-25, 0, 25]
+function isLoginUnique(allLogins, login) {
+  'use strict';
+  // Write code under this line
+  if (allLogins.includes(login)) {
+    return false;
+  } else {
+    return true;
+  }
+}
+function addLogin(allLogins, login) {
+  'use strict';
+  const SUCCESS = 'Логин успешно добавлен!';
+  const REFUSAL = 'Такой логин уже используется!';
+  const ERROR = 'Ошибка! Логин должен быть размером от 4 до 16 символов';
+  let message;
+  // Write code under this line
+  if (!isLoginValid(login)) {
+    message = ERROR;
+  } else if (!isLoginUnique(allLogins, login)) {
+    message = REFUSAL;
+  } else {
+    allLogins.push(login);
+    message = SUCCESS;
+  }
+  return message;
+}
+// function isLoginUnique(allLogins, login) {
+//   // Write code under this line
+//   return allLogins.includes(login) ? false : true;
+// }
+const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
+console.log(addLogin(logins, 'Ajax'));
+// 'Логин успешно добавлен!'
+console.log(addLogin(logins, 'robotGoogles'));
+// 'Такой логин уже используется!'
+console.log(addLogin(logins, 'Zod'));
+// 'Ошибка! Логин должен быть от 4 до 16 символов'
+console.log(addLogin(logins, 'jqueryisextremelyfast'));
+// 'Ошибка! Логин должен быть от 4 до 16 символов'
