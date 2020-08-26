@@ -1,26 +1,16 @@
-const calculateEngravingPrice = (message = '', pricePerWord = 0) =>
-  message.split(' ').length * pricePerWord; // Write code in this line
+const countProps = function (obj) {
+  'use strict';
+  // Write code under this line
+  const keys = Object.keys(obj);
+  return keys.length;
+};
 
-console.log(
-  calculateEngravingPrice(
-    'Proin sociis natoque et magnis parturient montes mus',
-    10,
-  ),
-); // 80
+console.log(countProps({})); // 0
 
-console.log(
-  calculateEngravingPrice(
-    'Proin sociis natoque et magnis parturient montes mus',
-    20,
-  ),
-); // 160
+console.log(countProps({ a: 1, b: 1 })); // 2
 
-console.log(
-  calculateEngravingPrice('Donec orci lectus aliquam est magnis', 40),
-); // 240
+console.log(countProps({ a: 1, b: 1, c: 1, d: 1, e: 1 })); // 5
 
-console.log(
-  calculateEngravingPrice('Donec orci lectus aliquam est magnis', 20),
-); // 120
+// Напиши функцию countProps(obj), которая возвращает число - количество свойств в объекте.
 
-console.log(calculateEngravingPrice('Uno', 100)); // 100
+// Циклы не должны использоваться
