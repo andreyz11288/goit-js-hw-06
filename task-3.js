@@ -19,15 +19,16 @@ function reduceArray(array, cb, initial) {
   for (i; i < array.length; i += 1) {
     const element = array[i];
     // Write code under this line
-    if (cb === add) {
-      accum += element;
-    }
-    if (cb === mult) {
-      accum *= element;
-    }
-    if (cb === sub) {
-      accum -= element;
-    }
+    // if (cb === add) {
+    //   accum += element;
+    // }
+    // if (cb === mult) {
+    //   accum *= element;
+    // }
+    // if (cb === sub) {
+    //   accum -= element;
+    // }
+    accum = cb(accum, element);
   }
   return accum;
 }

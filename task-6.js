@@ -1,37 +1,30 @@
-function calculateTotalPrice(array, prop) {
-  'use strict';
-  // Write code under this line
+const inventory = {
+  items: ['Knife', 'Gas mask'],
+  add(itemName) {
+    console.log(`Adding ${itemName} to inventory`);
 
-  let total = 0;
-  for (const product of array) {
-    // console.log(product);
-    if (prop === product.name) {
-      total += product.price * product.quantity;
-    }
-  }
+    this.items.push(itemName);
+  },
+  remove(itemName) {
+    console.log(`Removing ${itemName} from inventory`);
 
-  return total;
-}
+    this.items = this.items.filter(item => item !== itemName);
+  },
+};
 
-// Объекты и ожидаемый результат
-const products = [
-  { name: 'Радар', price: 1300, quantity: 4 },
-  { name: 'Радар', price: 1280, quantity: 2 },
-  { name: 'Радар', price: 1320, quantity: 1 },
-  { name: 'Сканер', price: 2700, quantity: 1 },
-  { name: 'Сканер', price: 2500, quantity: 3 },
-  { name: 'Дроид', price: 400, quantity: 7 },
-  { name: 'Захват', price: 1200, quantity: 2 },
-];
+const invokeInventoryAction = function (itemName, action) {
+  console.log(`Invoking action on ${itemName}`);
+  action(itemName);
+};
 
-console.log(calculateTotalPrice(products, 'Радар'));
-// 9080
+invokeInventoryAction('Medkit', inventory.add);
+// Invoking action on Medkit
+// Adding Medkit to inventory
 
-console.log(calculateTotalPrice(products, 'Сканер'));
-// 10200
+console.log(inventory.items); // ['Knife', 'Gas mask', 'Medkit']
 
-console.log(calculateTotalPrice(products, 'Захват'));
-// 2400
+invokeInventoryAction('Gas mask', inventory.remove);
+// Invoking action on Gas mask
+// Removing Gas mask from inventory
 
-console.log(calculateTotalPrice(products, 'Дроид'));
-// 2800
+console.log(inventory.items); // ['Knife', 'Medkit']
