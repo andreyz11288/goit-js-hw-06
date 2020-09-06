@@ -1,26 +1,25 @@
-const isUniq = (element, index, arr) => arr.indexOf(element) === index;
-const isEven = element => element % 2 === 0;
-
-function filterArray(array, cb) {
-  'use strict';
-  const numbers = [];
-  for (let i = 0; i < array.length; i += 1) {
-    const element = array[i];
-    const index = i;
-    // Write code under this line
-    if (cb(element, index, array)) {
-      numbers.push(element);
-    }
+// Write code under this line
+class User {
+  constructor(name, age, followers) {
+    this.name = String(name);
+    this.age = Number(age);
+    this.followers = Number(followers);
   }
-  return numbers;
 }
+User.prototype.getInfo = function () {
+  return `User ${this.name} is ${this.age} years old and has ${this.followers} followers`;
+};
 
-const arr = [1, 2, 3, 4, 5, 1, 2, 5];
+console.log(typeof User);
+// 'function'
 
-console.log(filterArray(arr, isUniq));
-// [1, 2, 3, 4, 5]
+const mango = new User('Mango', 2, 20);
+console.log(mango.getInfo());
+// 'User Mango is 2 years old and has 20 followers'
 
-console.log(filterArray(arr, isEven));
-// [2, 4, 2]
+// console.log(typeof mango.getInfo);
+// 'function'
 
-// Дополни тело функции так, чтобы функция filterArray заполняла новый пустой массив numbers только теми элементами из массива array, для которых вызов функции cb вернет true.
+// const poly = new User( 'Poly', 3, 17);
+// console.log(poly.getInfo());
+// 'User Poly is 3 years old and has 17 followers'
