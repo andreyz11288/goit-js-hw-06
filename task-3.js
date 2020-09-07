@@ -1,45 +1,51 @@
-const add = (accum, element) => accum + element;
-const mult = (accum, element) => accum * element;
-const sub = (accum, element) => accum - element;
-
-function reduceArray(array, cb, initial) {
-  'use strict';
-  let i;
-  let accum;
-  if (arguments.length >= 3) {
-    accum = initial;
-    // console.log(initial);
-    i = 0;
+// Write code under this line
+class Storage {
+  constructor(items) {
+    this.items = items;
   }
-  if (arguments.length === 2) {
-    accum = array[0];
-    // console.log(array[0]);
-    i = 1;
+  getItems() {
+    return this.items;
   }
-  for (i; i < array.length; i += 1) {
-    const element = array[i];
-    // Write code under this line
-    // if (cb === add) {
-    //   accum += element;
-    // }
-    // if (cb === mult) {
-    //   accum *= element;
-    // }
-    // if (cb === sub) {
-    //   accum -= element;
-    // }
-    accum = cb(accum, element);
+  addItem(items) {
+    this.items.push(items);
   }
-  return accum;
+  removeItem(items) {
+    if (this.items.includes(items)) {
+      this.items.splice(this.items.indexOf(items), 1);
+    }
+  }
 }
 
-const arr = [1, 2, 3, 4, 5];
+console.log(typeof Storage);
+// 'function'
 
-console.log(reduceArray(arr, add)); // 15
-console.log(reduceArray(arr, add, 10)); // 25
+const goods = ['Нанитоиды', 'Пролонгер', 'Железные жупи', 'Антигравитатор'];
 
-console.log(reduceArray(arr, mult)); // 120
-console.log(reduceArray(arr, mult, 10)); // 1200
+const storage = new Storage(goods);
 
-console.log(reduceArray(arr, sub)); // -13
-console.log(reduceArray(arr, sub, 10)); // -5
+console.log(storage.getItems());
+/* [
+  'Нанитоиды',
+  'Пролонгер',
+  'Железные жупи',
+  'Антигравитатор'
+] */
+
+storage.addItem('Дроид');
+console.log(storage.getItems());
+/* [
+  'Нанитоиды',
+  'Пролонгер',
+  'Железные жупи',
+  'Антигравитатор',
+  'Дроид'
+] */
+
+storage.removeItem('Пролонгер');
+console.log(storage.getItems());
+/* [
+  'Нанитоиды',
+  'Железные жупи',
+  'Антигравитатор',
+  'Дроид'
+] */
