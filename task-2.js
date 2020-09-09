@@ -1,25 +1,45 @@
 // Write code under this line
-class User {
-  constructor(name, age, followers) {
-    this.name = String(name);
-    this.age = Number(age);
-    this.followers = Number(followers);
+const getUsersWithEyeColor = (array, color) =>
+  array.filter(function ({ eyeColor }) {
+    return eyeColor === color;
+  });
+//cities.filter(e => e.population < 1000000)
+console.log(getUsersWithEyeColor(users, 'blue'));
+/* [
+  {
+    id: "701b29c3-b35d-4cf1-a5f6-8b12b29a5081",
+    name: "Moore Hensley",
+    email: "moorehensley@indexia.com",
+    eyeColor: "blue",
+    friends: ["Sharron Pace"],
+    isActive: false,
+    balance: 2811,
+    skills: ["ipsum", "lorem"],
+    gender: "male",
+    age: 37,
+  },
+  {
+    id: "7a3cbd18-57a1-4534-8e12-1caad921bda1",
+    name: "Sharlene Bush",
+    email: "sharlenebush@tubesys.com",
+    eyeColor: "blue",
+    friends: ["Briana Decker", "Sharron Pace"],
+    isActive: true,
+    balance: 3821,
+    skills: ["tempor", "mollit", "commodo", "veniam", "laborum"],
+    gender: "female",
+    age: 34,
+  },
+  {
+    id: "334f8cb3-eb04-45e6-abf4-4935dd439b70",
+    name: "Carey Barr",
+    email: "careybarr@nurali.com",
+    eyeColor: "blue",
+    friends: ["Jordan Sampson", "Eddie Strong"],
+    isActive: true,
+    balance: 3951,
+    skills: ["ex", "culpa", "nostrud"],
+    gender: "male",
+    age: 27,
   }
-}
-User.prototype.getInfo = function () {
-  return `User ${this.name} is ${this.age} years old and has ${this.followers} followers`;
-};
-
-console.log(typeof User);
-// 'function'
-
-const mango = new User('Mango', 2, 20);
-console.log(mango.getInfo());
-// 'User Mango is 2 years old and has 20 followers'
-
-// console.log(typeof mango.getInfo);
-// 'function'
-
-// const poly = new User( 'Poly', 3, 17);
-// console.log(poly.getInfo());
-// 'User Poly is 3 years old and has 17 followers'
+] */
