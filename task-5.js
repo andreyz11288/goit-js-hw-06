@@ -1,58 +1,35 @@
-class Car {
-  // Write code under this line
-  static getSpecs(car) {
-    return `maxSpeed: ${car.maxSpeed}, speed: ${car.speed}, isOn: ${car.isOn}, distance: ${car.distance}, price: ${car._price}`;
-  }
-  constructor(car) {
-    this.speed = 0;
-    this._price = car.price;
-    this.maxSpeed = car.maxSpeed;
-    this.isOn = false;
-    this.distance = 0;
-  }
-  get price() {
-    return this._price;
-  }
-  set price(value) {
-    this._price = value;
-  }
-  turnOn() {
-    return (this.isOn = true);
-  }
-  turnOff() {
-    this.speed = 0;
-    return (this.isOn = false);
-  }
-  accelerate(value) {
-    this.speed + value <= this.maxSpeed
-      ? (this.speed += value)
-      : (this.speed = this.maxSpeed);
-  }
-  decelerate(value) {
-    this.speed - value >= 0 ? (this.speed -= value) : (this.speed = 0);
-  }
-  drive(hours) {
-    if ((this.isOn = true)) {
-      this.distance += this.speed * hours;
-    }
-  }
-}
+// Write code under this line
+const getUserWithEmail = (array, mail) =>
+  array.find(function ({ email }) {
+    return email === mail;
+  });
 
-const mustang = new Car({ maxSpeed: 200, price: 2000 });
-mustang.turnOn();
-mustang.accelerate(50);
-mustang.drive(2);
+console.log(getUserWithEmail(users, 'rossvazquez@xinware.com'));
 
-// console.log(Car.getSpecs(mustang));
-// 'maxSpeed: 200, speed: 50, isOn: true, distance: 100, price: 2000'
+/* {
+    id: '88beb2f3-e4c2-49f3-a0a0-ecf957a95af3',
+    name: 'Ross Vazquez',
+    email: 'rossvazquez@xinware.com',
+    eyeColor: 'green',
+    friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+    isActive: false,
+    balance: 3793,
+    skills: ['nulla', 'anim', 'proident', 'ipsum', 'elit'],
+    gender: 'male',
+    age: 24,
+} */
 
-mustang.decelerate(20);
-mustang.drive(1);
-mustang.turnOff();
+// console.log(getUserWithEmail(users, 'blackburndotson@furnigeer.com'));
 
-// console.log(Car.getSpecs(mustang));
-// 'maxSpeed: 200, speed: 0, isOn: false, distance: 130, price: 2000'
-
-// console.log(mustang.price); // 2000
-mustang.price = 4000;
-// console.log(mustang.price); // 4000
+/* {
+    id: '150b00fb-dd82-427d-9faf-2879ea87c695',
+    name: 'Blackburn Dotson',
+    email: 'blackburndotson@furnigeer.com',
+    eyeColor: 'brown',
+    friends: ['Jacklyn Lucas', 'Linda Chapman'],
+    isActive: false,
+    balance: 1498,
+    skills: ['non', 'amet', 'ipsum'],
+    gender: 'male',
+    age: 38,
+} */
