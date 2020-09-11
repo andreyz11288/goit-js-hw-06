@@ -1,30 +1,20 @@
-const inventory = {
-  items: ['Knife', 'Gas mask'],
-  add(itemName) {
-    console.log(`Adding ${itemName} to inventory`);
+// Write code under this line
+const getUsersWithAge = (array, min, max) =>
+  array
+    .filter(({ age }) => age < max && age > min)
+    .map(({ name, email }) => ({ name, email }));
 
-    this.items.push(itemName);
-  },
-  remove(itemName) {
-    console.log(`Removing ${itemName} from inventory`);
+console.log(getUsersWithAge(users, 20, 30));
+/* [
+    { name: 'Ross Vazquez', email: 'rossvazquez@xinware.com' },
+    { name: 'Elma Head', email: 'elmahead@omatom.com' },
+    { name: 'Carey Barr', email: 'careybarr@nurali.com' }
+] */
 
-    this.items = this.items.filter(item => item !== itemName);
-  },
-};
-
-const invokeInventoryAction = function (itemName, action) {
-  console.log(`Invoking action on ${itemName}`);
-  action(itemName);
-};
-
-invokeInventoryAction('Medkit', inventory.add);
-// Invoking action on Medkit
-// Adding Medkit to inventory
-
-console.log(inventory.items); // ['Knife', 'Gas mask', 'Medkit']
-
-invokeInventoryAction('Gas mask', inventory.remove);
-// Invoking action on Gas mask
-// Removing Gas mask from inventory
-
-console.log(inventory.items); // ['Knife', 'Medkit']
+// console.log(getUsersWithAge(users, 30, 40));
+/* [
+    { name: 'Moore Hensley', email: 'moorehensley@indexia.com' },
+    { name: 'Sharlene Bush', email: 'sharlenebush@tubesys.com' },
+    { name: 'Blackburn Dotson', email: 'blackburndotson@furnigeer.com' },
+    { name: 'Sheree Anthony', email: 'shereeanthony@kog.com' }
+] */
